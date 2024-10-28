@@ -95,5 +95,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/loan-prediction-system.git
+   git clone https://github.com/hemanthreddygadi/Loan-Eligibility-Prediction
    cd loan-prediction-system
