@@ -36,14 +36,6 @@ The dataset contains loan application details and is used to train various model
 
 Ensure the dataset is downloaded and placed in the project directory.
 
-## Setup
-
-To set up the project locally, follow these steps:
-- Clone the repository.
-- Install the required libraries.
-- Start Jupyter Notebook.
-
-
 ## Usage
 - Preprocess the data:
 
@@ -93,7 +85,12 @@ After training the models and evaluating their performance, the results (accurac
 ## LICENSE
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-1. **Clone the repository**:
+## Setup
+
+To set up the project locally, follow these steps:
+- Clone the repository.
+- Install the required libraries.
+- Start Jupyter Notebook.
    ```bash
    git clone https://github.com/hemanthreddygadi/Loan-Eligibility-Prediction
    cd loan-prediction-system
