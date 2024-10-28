@@ -1,8 +1,6 @@
-# Loan-Eligibility-Prediction
-
 # Loan Prediction System
 
-This project aims to predict loan approvals based on applicant information. The dataset used contains various features such as gender, marital status, education, income, and more. Several classification models like Logistic Regression, Decision Tree, Random Forest, and K-Nearest Neighbors are employed to analyze the data.
+This project aims to predict loan approvals based on applicant information using several classification models like Logistic Regression, Decision Tree, Random Forest, and K-Nearest Neighbors. The dataset includes features like gender, marital status, education, income, and more. 
 
 ## Table of Contents
 - [Technologies Used](#technologies-used)
@@ -25,65 +23,74 @@ This project aims to predict loan approvals based on applicant information. The 
 
 ## Dataset
 
-The dataset consists of information related to loan applicants. Key columns include:
-- **Gender**: Male/Female
-- **Married**: Yes/No
+The dataset contains loan application details and is used to train various models to predict whether a loan will be approved or not. The key features include:
+
+- **Gender**: Applicant's gender (Male/Female)
+- **Married**: Applicant's marital status (Yes/No)
 - **Dependents**: Number of dependents
-- **Education**: Applicant's education level
-- **Self_Employed**: Whether the applicant is self-employed
+- **Education**: Applicant's education level (Graduate/Non-Graduate)
+- **Self_Employed**: Whether the applicant is self-employed (Yes/No)
 - **ApplicantIncome**: Applicant's income
 - **LoanAmount**: Loan amount requested
-- **Loan_Status**: Whether the loan was approved or not (target variable)
+- **Loan_Status**: Whether the loan was approved (Y/N) [Target Variable]
 
-Download the dataset from the appropriate source or use the provided CSV file within the repository.
+Ensure the dataset is downloaded and placed in the project directory.
 
 ## Setup
 
 To set up the project locally, follow these steps:
-Install the required libraries:
 
-'''bash
-pip install pandas numpy seaborn matplotlib scikit-learn imbalanced-learn
-Open the project in Jupyter Notebook or your preferred IDE.
 
 ## Usage
-- Load the dataset:
+- Preprocess the data:
 
-df = pd.read_csv('/content/sample_data/Loan_data.csv')
+  - Load the dataset using Pandas.
+  - Handle missing values by using median and mode imputation for numerical and categorical features.
+  - Apply log transformation for skewed features like LoanAmount, TotalIncome, and others.
+  - Encode categorical features using LabelEncoder.
+  - Split the dataset into training and testing sets (e.g., 75% training, 25% testing).
 
--Preprocess the data:
+- Train different models:
+  
+  - Logistic Regression
+  - Decision Tree
+  - Random Forest
+  - K-Nearest Neighbors
+  - 
+- Run the models: Each model is trained on the training dataset, and predictions are made on the test dataset. You can also apply cross-validation to check the generalization of the models.
+  
+- Use oversampling to handle imbalance: If your dataset is imbalanced, apply RandomOverSampler from imbalanced-learn to balance the dataset before training.
 
-  -Handle missing values.
-  -Create new features like Total_Income.
-  -Apply transformations like log scaling.
-  - Perform label encoding on categorical variables.
+## Model Evaluation
+We evaluate the performance of the models using the following metrics:
 
-df['LoanAmount'] = df['LoanAmount'].fillna(df['LoanAmount'].median())
-df['Gender'] = df['Gender'].fillna(df['Gender'].mode()[0])
-df['Total_Income'] = df['ApplicantIncome'] + df['CoapplicantIncome']
-# Log transformation for skewed data
-df['ApplicantIncomelog'] = np.log(df['ApplicantIncome'] + 1)
+- Accuracy: Measures the proportion of correctly predicted instances out of the total instances.
 
-- Model training:
+- Confusion Matrix: A table used to describe the performance of a classification model by showing the correct and incorrect predictions made.
 
-  -Split the dataset into training and testing sets.
-  -Train classifiers such as Logistic Regression, Decision Tree, Random Forest, and KNN.
+- Learning Curve: This helps to understand how the model improves with more training data and whether it is underfitting or overfitting.
 
-from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
+- Feature Importance: For models like Decision Trees and Random Forests, feature importance shows which features were most influential in predicting the loan status.
 
-# Train Logistic Regression
-model1 = LogisticRegression()
-model1.fit(X_train, y_train)
-Evaluate the models:
+## Results
+After training the models and evaluating their performance, the results (accuracy and other metrics) are displayed for each model. Below are the models tested:
 
-python
-Copy code
-from sklearn.metrics import accuracy_score
-accuracy = accuracy_score(y_test, y_pred_model1)
-print("Logistic Regression Accuracy:", accuracy*100)
+- Logistic Regression: Provides a baseline performance with reasonable accuracy.
+  ![image](https://github.com/user-attachments/assets/577f401f-cd02-4721-b468-ef62dbf1b2a0)
+  
+- Decision Tree Classifier: Performs well but can sometimes overfit the data.
+  ![image](https://github.com/user-attachments/assets/57ddab2a-dc5e-4a2d-a55e-ff820ad32815)
 
-1. Clone the repository:
+- Random Forest Classifier: Provides robust performance by averaging multiple decision trees.
+  ![image](https://github.com/user-attachments/assets/98af9c02-6bce-4e5e-9295-068c3f9eca0c)
+
+- K-Nearest Neighbors: Simpler model but might not perform well with imbalanced datasets.
+  ![image](https://github.com/user-attachments/assets/6ba9c5c6-6dfe-45f5-bcdc-f4b6d0097474)
+
+## LICENSE
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+1. **Clone the repository**:
    ```bash
    git clone https://github.com/yourusername/loan-prediction-system.git
    cd loan-prediction-system
