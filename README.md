@@ -42,8 +42,7 @@ Download the dataset from the appropriate source or use the provided CSV file wi
 To set up the project locally, follow these steps:
 Install the required libraries:
 
-bash
-Copy code
+'''bash
 pip install pandas numpy seaborn matplotlib scikit-learn imbalanced-learn
 Open the project in Jupyter Notebook or your preferred IDE.
 
