@@ -39,6 +39,9 @@ Ensure the dataset is downloaded and placed in the project directory.
 ## Setup
 
 To set up the project locally, follow these steps:
+- Clone the repository.
+- Install the required libraries.
+- Start Jupyter Notebook.
 
 
 ## Usage
@@ -56,7 +59,7 @@ To set up the project locally, follow these steps:
   - Decision Tree
   - Random Forest
   - K-Nearest Neighbors
-  - 
+  
 - Run the models: Each model is trained on the training dataset, and predictions are made on the test dataset. You can also apply cross-validation to check the generalization of the models.
   
 - Use oversampling to handle imbalance: If your dataset is imbalanced, apply RandomOverSampler from imbalanced-learn to balance the dataset before training.
